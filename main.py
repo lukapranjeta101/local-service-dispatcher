@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import List
 from service_sources import get_service_list, get_service_details
@@ -8,6 +9,22 @@ app = FastAPI(
     version="1.0.0",
     description="Provides local service provider search, details, and booking assistance."
 )
+
+# ---------- CORS (Required for ChatGPT + Railway) ----------
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # allow all origins
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# ---------- ROOT ROUTE (Required for Railway) ----------
+
+@app.get("/")
+def root():
+    return {"status": "Local Service Dispatcher API is running!"}
 
 # ---------- MODELS ----------
 
