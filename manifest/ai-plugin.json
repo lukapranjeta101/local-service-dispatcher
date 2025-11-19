@@ -1,0 +1,14 @@
+{
+  "schema_version": "v1",
+  "name_for_model": "local_service_dispatcher",
+  "name_for_human": "Local Service Dispatcher",
+  "description_for_model": "Searches for local service providers like plumbers, electricians, HVAC, and assists with details and availability.",
+  "description_for_human": "Find local service providers instantly.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://YOUR-DOMAIN.com/openapi.json"
+  }
+}
